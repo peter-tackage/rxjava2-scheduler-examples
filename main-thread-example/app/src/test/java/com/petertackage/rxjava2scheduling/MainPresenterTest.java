@@ -54,7 +54,7 @@ public class MainPresenterTest {
     }
 
     @Test
-    public void bind_setFavoriteBookTitle_whenGetFavoriteBookEmits() {
+    public void bind_setsFavoriteBookTitle_whenGetFavoriteBookEmits() {
         Book book = Book.create("The adventures of the Scheduler");
         when(bookstoreModel.getFavoriteBook()).thenReturn(Observable.just(book));
 
