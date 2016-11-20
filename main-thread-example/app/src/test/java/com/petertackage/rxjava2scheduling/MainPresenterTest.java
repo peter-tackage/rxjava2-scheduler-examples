@@ -1,4 +1,4 @@
-package com.petertackage.androidschedulersdemo;
+package com.petertackage.rxjava2scheduling;
 
 import org.junit.AfterClass;
 import org.junit.Before;
