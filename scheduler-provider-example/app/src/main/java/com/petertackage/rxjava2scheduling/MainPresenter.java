@@ -1,10 +1,15 @@
 package com.petertackage.rxjava2scheduling;
 
+import android.support.annotation.VisibleForTesting;
+
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.disposables.CompositeDisposable;
 
 final class MainPresenter {
+
+    @VisibleForTesting
+    static final long DELAY_TIME_SEC = 5;
 
     private final BookstoreModel bookstoreModel;
     private final BookView view;
@@ -22,8 +27,8 @@ final class MainPresenter {
     void bind() {
         disposable.add(bookstoreModel.getFavoriteBook()
                                      .map(Book::getTitle)
-                                     // Delay for dramatic effect!
-                                     .delay(5, TimeUnit.SECONDS, schedulerProvider.computation())
+                                     .delay(DELAY_TIME_SEC, TimeUnit.SECONDS,
+                                            schedulerProvider.computation())
                                      .observeOn(schedulerProvider.ui())
                                      .subscribe(view::setBookTitle));
     }
