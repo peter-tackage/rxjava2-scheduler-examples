@@ -55,7 +55,6 @@ public class MainPresenterTest {
 
         presenter.bind();
         testScheduler.advanceTimeBy(MainPresenter.DELAY_TIME_SEC, TimeUnit.SECONDS);
-        testScheduler.triggerActions();
 
         verify(bookView).setBookTitle(title);
     }
